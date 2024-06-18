@@ -1,0 +1,36 @@
+# Version control
+.git/
+.svn/
+
+# Build artifacts
+.hugo_cache/
+.hugo_build.lock
+
+# Local development files
+.idea/
+.vscode/
+
+# Sensitive information
+*.env  # Exclude all environment variable files
+
+# Temporary files
+.DS_Store
+._*
+
+# Editor drafts and temporary files
+*.swp  # Common editor swap files
+*.tmp  # Temporary files
+
+# Logs
+*.log
+
+# Specific Hugo configuration exclusions (if applicable)
+# Adjust these based on your setup
+config/_default/  # Exclude default configuration if present
+# Exclude any other configuration directories you don't want to deploy
+
+# Testing files (if applicable)
+# Add patterns for test files or directories if you have them
+
+# Ignore additional patterns as needed
+# Customize this section based on your project's specific requirements
