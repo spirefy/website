@@ -11,8 +11,8 @@ COPY . /src
 WORKDIR /src
 
 # Copy the watch script into the container
-COPY watch-and-rebuild.sh /src/watch-and-rebuild.sh
-RUN chmod +x /src/watch-and-rebuild.sh
+#COPY watch-and-rebuild.sh /src/watch-and-rebuild.sh
+#RUN chmod +x /src/watch-and-rebuild.sh
 
 # Verify Hugo installation
 RUN hugo version
@@ -28,9 +28,12 @@ FROM nginx:alpine
 
 # Copy the built site from the previous stage
 COPY --from=builder /output /usr/share/nginx/html
+#COPY --from=builder /src/watch-and-rebuild.sh /src/watch-and-rebuild.sh
 
 # Expose port 80
 EXPOSE 80
 
 # Start Nginx and the file watcher
-CMD ["sh", "-c", "nginx -g 'daemon off;' & /src/watch-and-rebuild.sh"]
+# CMD ["sh", "-c", "nginx -g 'daemon off;' & /src/watch-and-rebuild.sh"]
+CMD ["sh", "-c", "nginx -g 'daemon off;'"]
+
